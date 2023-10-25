@@ -1,0 +1,231 @@
+
+<html>
+<head>
+    <title>Tienda 9 3/4</title>
+    <style>
+        /* Estilos para el banner */
+        .banner {
+            width: 100%;<
+            max-width: 1600px;
+            height: 200px;
+            background-color: #000000;
+            text-align: center;
+            display: flex; /* Usar flexbox para centrar elementos */
+            align-items: center; /* Centrar verticalmente */
+            justify-content: center; /* Centrar horizontalmente */
+        }
+
+
+        /* Estilos para la imagen */
+        .banner img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <img src="https://teehunter.com/wp-content/uploads/2015/08/harry-potter-t-shirts-banner.jpg" alt="Imagen del banner">
+    </div>
+</body>
+</html>
+
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Sidebar Centrado</title>
+  <style>
+      /* Estilos para el contenedor principal */
+      .container {
+          display: flex;
+          justify-content: center; /* Centrar horizontalmente*/
+          align-items: center; /* Centrar verticalmente */
+
+
+          height: 80vh; /* Alto del 100% de la ventana */
+      }
+     
+
+
+        /* Estilos para los enlaces del sidebar */
+        .sidebar a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 18px;
+            color: white; /* Color del texto de los enlaces */
+            display: block; /* Para que cada enlace esté en una línea separada */
+        }
+
+
+        /* Estilos para los enlaces cuando el mouse está encima */
+        .sidebar a:hover {
+            background-color: #000000; /* Color de fondo al pasar el mouse */
+        }
+
+
+        /* Estilos para el contenido principal */
+        .content {
+            margin-left: 260px; /* Ancho del sidebar + un margen para separarlo */
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Sidebar con Contenido Principal</title>
+    <style>
+        /* Estilos para el contenedor principal */
+        .container {
+            display: flex;
+        }
+
+
+        /* Estilos para el sidebar */
+        .sidebar {
+            width: 250px; /* Ancho del sidebar */
+            background-color: #333; /* Color de fondo del sidebar */
+            padding-top: 20px;
+        }
+
+
+        /* Estilos para los enlaces del sidebar */
+        .sidebar a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 18px;
+            color: white; /* Color del texto de los enlaces */
+            display: block; /* Para que cada enlace esté en una línea separada */
+        }
+
+
+        /* Estilos para los enlaces cuando el mouse está encima */
+        .sidebar a:hover {
+            background-color: #555; /* Color de fondo al pasar el mouse */
+        }
+
+
+        /* Estilos para el contenido principal */
+        .content {
+            flex-grow: 1; /* Hace que el contenido principal ocupe todo el espacio restante */
+            padding: 20px;
+            background-color: #f1f1f1; /* Color de fondo del contenido principal */
+        }
+    </style>
+</head>
+<body>
+
+
+<!-- Contenedor principal -->
+<div class="container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <a href="#">Inicio</a>
+        <a href="#">Ubicación</a>
+        <a href="#">Contacto</a>
+    </div>
+
+
+    <!-- Contenido principal -->
+    <div class="content">
+    </div>
+</html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="estilos.css">
+
+ <title>Simulación de Compra</title>
+</head>
+<body>
+
+<!-- Lista de productos -->
+<div class="product-list">
+    <div class="product">
+       <div class="product">
+      <img src="https://elenanofriki.com/12273-large_default/replica-escoba-nimbus-2000-edicion-limitada-harry-potter.jpg" class="img-thumbnail" alt="Escoba 1">
+
+    
+    
+     
+        <p>Precio: 1500</p>
+        <button class="add-to-cart" onclick="addToCart('Producto', 1500)">Agregar al carrito</button>
+    </div>
+    <div class="product">
+        <h2>Producto 2</h2>
+        <p>Precio: $2000</p>
+        <button class="add-to-cart" onclick="addToCart('Producto 2', 2000)">Agregar al carrito</button>
+    </div>
+    <!-- Agrega más productos aquí -->
+    <div class="product-list">
+      <div class="product">
+          <h2>Producto 3</h2>
+          <p>Precio: 1200</p>
+          <button class="add-to-cart" onclick="addToCart('Producto 3', 1200)">Agregar al carrito</button>
+      </div>
+      <div class="product">
+          <h2>Producto 4</h2>
+          <p>Precio: $2500</p>
+          <button class="add-to-cart" onclick="addToCart('Producto 4', 2500)">Agregar al carrito</button>
+      </div>
+</div>
+
+
+<!-- Carrito de compras -->
+<div class="cart">
+    <h2>Carrito de Compras</h2>
+    <ul id="cart-items">
+        <!-- Los elementos del carrito se agregarán aquí -->
+    </ul>
+</div>
+
+
+<!-- Resumen de la compra -->
+<div class="summary">
+    <h2>Resumen de la Compra</h2>
+    <p>Total: $<span id="total">0</span></p>
+</div>
+
+
+<script>
+    // Variables para el carrito de compras y el total
+    let cart = [];
+    let total = 0;
+
+
+    // Función para agregar productos al carrito
+    function addToCart(productName, productPrice) {
+        cart.push({ name: productName, price: productPrice });
+        total += productPrice;
+
+
+        // Actualizar la lista de elementos del carrito
+        updateCart();
+    }
+
+
+    // Función para actualizar la lista de elementos del carrito
+    function updateCart() {
+        const cartItems = document.getElementById('cart-items');
+        cartItems.innerHTML = '';
+
+
+        cart.forEach(item => {
+            const listItem = document.createElement('li');
+            listItem.textContent = `${item.name} - $${item.price}`;
+            cartItems.appendChild(listItem);
+        });
+
+
+        // Actualizar el total
+        const totalElement = document.getElementById('total');
+        totalElement.textContent = total;
+    }
+</script>
+
+
+</body>
+</html>
+
